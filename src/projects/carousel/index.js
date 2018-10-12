@@ -36,7 +36,7 @@ export default class ProjectsCarousel extends React.Component {
               left: i < activeProjectIndex,
               right: i > activeProjectIndex
             })}>
-              <div class="cover" style={{ backgroundImage: `url(${p.coverImageSrc})` }}>
+              <div className="cover" style={{ backgroundImage: `url(${p.coverImageSrc})` }}>
                 <h2 className={classNames({
                   title: true,
                   dark: !!p.light

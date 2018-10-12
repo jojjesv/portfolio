@@ -1,6 +1,35 @@
-#fun-button{
+#fun-button {
+  border: none;
+  outline: none !important;
+  padding: 8px 18px;
+  font-size: 15px;
+  background: #673ab7;
+  color: #fafafa;
+  border-radius: 3px;
+  margin-top: 36px;
+  border-bottom: 3px solid #4527a0;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.15);
+
+  transition: all 250ms;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    transition-duration: 50ms;
+    opacity: 0.35;
+  }
+
   .spinner{
     width: 12px;
     vertical-align: middle;
   }
+}
+
+#fun-button-since{
+  font-size: 15px;
+  color: #757575;
+  margin: 8px 0 0 0;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles.scss';
+import { timeDiff, timeUnits } from '../utils';
 
 let local = document.location.href;
 const scriptUrl = `${(local.indexOf('localhost') != -1 ?
@@ -18,11 +19,18 @@ export default class FunButton extends React.Component {
     /**
      * @type {Date}
      */
-    lastPress: null
+    since: new Date()
   };
 
-  componentDidMount(){
+  forceUpdateIntervalId;
+
+  componentDidMount() {
     this.getClickCount();
+  
+    //  Refresh every min to update "since" label
+    this.forceUpdateIntervalId = setInterval(() => {
+      this.forceUpdate();
+    }, 1000 * 60);
   }
 
   /**
@@ -39,7 +47,7 @@ export default class FunButton extends React.Component {
       this.setState({
         loading: false,
         pressCount: result.count,
-        lastPress: new Date(result.since)
+        since: new Date(result.since)
       });
     });
   }
@@ -58,7 +66,7 @@ export default class FunButton extends React.Component {
       this.setState({
         loading: false,
         pressCount: result.count,
-        lastPress: new Date(result.since)
+        since: new Date(result.since)
       });
     }).catch(e => {
       console.log(e);
@@ -71,11 +79,18 @@ export default class FunButton extends React.Component {
   render() {
     let { state } = this;
 
+    let sinceDiff = timeDiff(Date.now(), state.since.getTime());
+
     return (
-      <button id="fun-button" onClick={() => this.registerClick()}>
-        Anyone has pressed this
-          {" "}{state.loading ? <img className="spinner" src={require('../assets/spinner.gif')} /> : state.pressCount} times
-      </button>
+      <div style={{ textAlign: 'center' }}>
+        <button id="fun-button" onClick={() => this.registerClick()}>
+          Anyone has pressed this
+          {" "}{state.loading ? <img className="spinner" src={require('../assets/spinner.gif')} /> : state.pressCount.toLocaleString()} times
+        </button>
+        <p id="fun-button-since">
+          Last pressed {sinceDiff.delta <= 0 ? "less than" : ''} {Math.max(1, sinceDiff.delta)} {timeUnits[sinceDiff.unit]} ago 
+        </p>
+      </div>
     )
   }
 }
