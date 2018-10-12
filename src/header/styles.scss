@@ -1,0 +1,29 @@
+@import '../def';
+
+#global-header{
+  height: 56px;
+  background: #212121;
+  position: relative;
+
+  .content{
+    position: relative;
+    height: 100%;
+    padding: 0 24px;
+    margin: 0 auto;
+    max-width: $content-max-width;
+  }
+
+  .sub {
+    opacity: 0.75;
+    margin-left: 8px;
+  }
+}
+
+#page-title{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #fafafa;
+  margin: 0;
+}

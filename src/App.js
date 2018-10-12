@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ProjectsCarousel from './projects/carousel';
+import ProjectInfo from './projects/info';
+import GlobalHeader from './header';
+import AboutMe from './about';
+import GlobalFooter from './footer';
+import FunButton from './fun_button';
 
 class App extends Component {
+  state = {
+    activeProjectIndex: 0
+  }
+
   render() {
+    let { state } = this;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <GlobalHeader />
+        <div id="page-content">
+          <ProjectsCarousel
+            onProposeChange={i => this.setState({ activeProjectIndex: i })}
+            activeProjectIndex={state.activeProjectIndex} />
+          <ProjectInfo activeProjectIndex={state.activeProjectIndex} />
+
+          <AboutMe />
+
+          <FunButton />
+        </div>
+
+        <GlobalFooter />
       </div>
     );
   }

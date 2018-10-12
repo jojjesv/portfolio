@@ -1,0 +1,15 @@
+@import "../../def";
+
+#project-info{
+  box-sizing: border-box;
+  font-weight: 400;
+  width: 100%;
+
+  /* Align with carousel project title. */
+  padding: 0 calc(#{$carousel-active-inset} + 36px);
+}
+
+.external-link{
+  text-decoration: none;
+  color: #0D47A1;
+}

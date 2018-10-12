@@ -1,0 +1,17 @@
+@import "def";
+
+body{
+  background: #fafafa;
+  margin: 0;
+  text-decoration: none;
+  font-family: 'Lato', Arial, sans-serif;
+}
+
+#page-content {
+  max-width: $content-max-width;
+  min-width: $content-min-width;
+  margin: 0 auto;
+  height: calc(100% + 80px);
+  position: relative;
+  overflow-x: hidden;
+}
