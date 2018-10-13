@@ -18,7 +18,7 @@ $carousel-width: calc(100% - #{$carousel-active-inset});
     background-size: cover;
     background-position: top right;
     filter: blur(4px);
-    opacity: 0.5;
+    opacity: 0.25;
     transition: opacity 500ms;
 
     &:not(.visible) {
