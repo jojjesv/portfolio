@@ -17,10 +17,11 @@ class App extends Component {
     return (
       <div className="app">
         <GlobalHeader />
+        <ProjectsCarousel
+          onProposeChange={i => this.setState({ activeProjectIndex: i })}
+          activeProjectIndex={state.activeProjectIndex} />
+
         <div id="page-content">
-          <ProjectsCarousel
-            onProposeChange={i => this.setState({ activeProjectIndex: i })}
-            activeProjectIndex={state.activeProjectIndex} />
           <ProjectInfo activeProjectIndex={state.activeProjectIndex} />
 
           <AboutMe />
