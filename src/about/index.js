@@ -22,6 +22,7 @@ export default class AboutMe extends React.Component {
           </p>
           <div>
             <ul className="contact">
+              <li><img src={require('../assets/ic_face.png')} alt="name" /> Johan Svensson</li>
               <li><img src={require('../assets/ic_call.png')} alt="phone" /> +462732270</li>
               <li><img src={require('../assets/ic_mail.png')} alt="mail" /> jojjedeveloper@gmail.com</li>
             </ul>
