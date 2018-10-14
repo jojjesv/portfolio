@@ -28,6 +28,13 @@ export default [{
   light: true,
   href: `https://jojjesv.github.io/vikingrobotics`
 }, {
+  title: 'Sörk\'s popcorn',
+  subtitle: "Popcorn popped with passion",
+  description: 'A website for a friend who\'s passion for popcorn finally made display on the web.',
+  coverImageSrc: require('../assets/cover/sorkspopcorn.jpg'),
+  light: false,
+  href: 'https://sorkspopcorn.site'
+}, {
   title: 'jMenu',
   subtitle: "Easily obtain the current week's lunch menu",
   description: 'This tool lists the school lunch menu for the current week. Designed for simplicity.',
